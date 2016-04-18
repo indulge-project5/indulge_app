@@ -1,0 +1,20 @@
+{
+  "name": "indulge_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "lodash": "^4.11.1",
+    "method-override": "^2.3.5",
+    "pg": "^4.5.3",
+    "sequelize": "^3.21.0"
+  }
+}

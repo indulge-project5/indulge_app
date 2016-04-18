@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <h1>Users:</h1>
+  <% peers.forEach(function(mate) { %>
+  <div>
+    <%= mate.first_name %>
+    <%= mate.last_name %>
+    <%= mate.phone %>
+    <%= mate.partner_phone %>
+    <%= mate.partner_id %>
+  </div>
+  <% }) %>
+</body>
+</html>
