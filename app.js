@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require("method-override");
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 // Set the view engine to be "EJS"
 app.set('view engine', 'ejs');
 
@@ -36,6 +38,21 @@ app.get('/users/new', function(req,res) {
 
   res.render('new');
 });
+
+
+
+app.get('/users/:id/notes', function(req,res) {
+// Need to pass in the signedIn variable in order to toggle between the two navbar options.  In the key value pair below, the key 'taco' is what is referenced on the index page so it knows when to toggle back and forth. The value 'signedIn' refers to the variable that is defined above.
+  var userId = req.params.id;
+  console.log("THIS IS THE userId: " + userId);
+  db.Note.find({ where: {UserId: userId }})
+    .then(function(nts) {
+      console.log(nts);
+      res.render('couple_notes', {myNotes: nts});
+    });  
+});
+
+
 
 app.post('/users', function(req,res) {
   var name = req.body.first_name;
