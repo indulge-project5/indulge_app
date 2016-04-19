@@ -92,7 +92,25 @@ app.get('/theme', function(req,res) {
 });
 
 app.get('/notes/new', function(req,res) {
-  res.render('new_note');
+  if((req.session.userId === null)||(req.session.userId === undefined)) {
+    // User is not logged in.
+    var signedIn=0;
+  }
+  if(req.session.userId === null) {
+    // User is not logged in, so don't let them pass
+    res.redirect("/login");
+  } 
+  else {
+    //If user information is valid, allow them to continue to their profile:
+    req.currentUser().then(function(user){
+      if (user) {
+        console.log("The user is this: ", user);
+        console.log("The user id is this: ", user.id);
+        console.log("The user phone is this: ", user.phone);
+          res.render('new_note', { user: user, taco:signedIn});
+      }
+    });
+  }
 });
 
 app.get('/notes', function(req,res) {
@@ -190,11 +208,11 @@ app.post('/users', function(req,res) {
   });
 });
 
-app.post('/notes', function(req,res) {
+app.post('/notes/:id/:phone', function(req,res) {
   var note_title = req.body.title;
   var desc = req.body.description;
-  var phone = req.body.phone;
-  var id = req.body.user_id
+  var phone = req.params.phone;
+  var id = req.params.id;
   // var u_ph = req.params.phone;
   // var user_id = req.params.id;
   db.Note.create({title: note_title, description: desc, UserId: id, user_phone:phone})
