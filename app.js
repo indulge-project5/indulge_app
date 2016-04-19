@@ -41,18 +41,60 @@ app.get('/users/new', function(req,res) {
 
 
 
-app.get('/users/:id/notes', function(req,res) {
-// Need to pass in the signedIn variable in order to toggle between the two navbar options.  In the key value pair below, the key 'taco' is what is referenced on the index page so it knows when to toggle back and forth. The value 'signedIn' refers to the variable that is defined above.
+app.get('/users/:id/:cid/notes', function(req,res) {
   var userId = req.params.id;
+  var c_id = req.params.cid;
   console.log("THIS IS THE userId: " + userId);
-  db.Note.find({ where: {UserId: userId }})
-    .then(function(nts) {
-      console.log(nts);
-      res.render('couple_notes', {myNotes: nts});
-    });  
+  db.Note.findAll({
+    where: {
+      $or: {
+        UserId:userId, user_phone:c_id
+      }}})
+  .then(function(nts) {
+    console.log("The notes are: ", nts);
+    res.render('couple_notes', { myNote: nts});
+  })
 });
 
 
+// DOESN'T WORK
+//   db.Note.find({$or:[{"UserId":userId},{"user_phone":c_id}]})
+//     .then(function(nts) {
+//       console.log("The notes are: ", nts);
+//       res.render('couple_notes', { myNote: nts});
+//     });
+// });
+
+
+// DOESN'T WORK
+//   db.Note.find({ where: {UserId: userId }})
+//     .then(function(nts) {
+//       console.log(nts);
+//       res.render('couple_notes', { myNote: nts});
+//     });  
+// });
+
+
+
+// DOESN'T WORK
+//   db.Note.findAll({ attributes: ['title','description','user_phone','UserId'],
+//     where: {UserId: userId }})
+//   db.Note.findAll({ attributes: ['title','description','user_phone','UserId'],
+//     where: {user_phone: u_ph}})
+//     .then(function(nts) {
+//       console.log("This is the notes: ", nts);
+//       res.render('couple_notes', {myNotes: nts});
+//     });  
+// });
+
+// DOESN'T WORK
+//   db.Note.findAll({where: Sequelize.or({
+//     user_phone:u_ph},{UserId:userId})})
+//     .then(function(nts) {
+//       console.log("This is the notes: ", nts);
+//       res.render('couple_notes', {myNotes: nts});
+//     });  
+// });
 
 app.post('/users', function(req,res) {
   var name = req.body.first_name;

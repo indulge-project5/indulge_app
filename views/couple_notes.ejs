@@ -1,13 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-  <p>
-	  <br><u><b>Song Title:</b></u> <%= myNotes.title %></a><br>
-	  <br><u><b>Song Title:</b></u> <%= myNotes.description %></a><br>
-	  <br><u><b>Song Title:</b></u> <%= myNotes.user_phone %></a><br>
-	  <br><u><b>Song Title:</b></u> <%= myNotes.UserId %></a><br>
-	</p>
+  <h1>Notes:</h1>
+  <% myNote.forEach(function(nt) { %>
+  <div>
+    <%= nt.title %>
+    <%= nt.description %>
+  </div>
+  <% }) %>
 </body>
 </html>
-
-
