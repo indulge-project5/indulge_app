@@ -13,6 +13,23 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         this.hasMany(models.Note);
+      },
+      authenticate: function(email, password) {
+        // find a user in the DB
+        return this.find({
+          where: {
+            email: email
+          }
+        }) 
+        .then(function(user){
+          if (user === null){
+            throw new Error("Username does not exist");
+          }
+          else if (user.password === user.password){
+            return user;
+          }
+
+        });
       }
     }
   });
