@@ -9,8 +9,6 @@ var session = require('express-session')
     session = require("express-session"),
     app = express();
 
-// app.set('port', (process.env.PORT || 5000));
-
 app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
@@ -212,6 +210,8 @@ app.get('/logout', function(req,res){
   res.redirect('/login');
 });
 
+// app.set('port', (process.env.PORT || 5000));
+
 // For development
 // app.listen(3000);
 
@@ -220,7 +220,7 @@ app.get('/logout', function(req,res){
 //   console.log('Node app is running on port', app.get('port'));
 // });
 
-app.listen(process.env.PORT || 3000), function () {
+app.listen(process.env.PORT || 5000), function () {
   console.log("SERVER RUNNING");
 };
 
