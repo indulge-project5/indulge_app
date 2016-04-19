@@ -209,6 +209,11 @@ app.get('/logout', function(req,res){
   res.redirect('/login');
 });
 
+// For development
+// app.listen(3000);
 
-app.listen(3000);
+// For Heroku
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
