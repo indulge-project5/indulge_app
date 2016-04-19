@@ -5,13 +5,19 @@ var methodOverride = require("method-override");
 var app = express();
 var session = require('express-session')
 
+//Create ability to make API/http calls:
+    request = require('request'),
 
 //In order to track sessions, express-session is required (command-line:npm install --save express-session):
     session = require("express-session"),
     app = express();
 
+app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+
+// views is directory for all template files
+app.set('views', __dirname + '/views');
 
 // Set the view engine to be "EJS"
 app.set('view engine', 'ejs');
