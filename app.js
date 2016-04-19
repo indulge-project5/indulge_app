@@ -5,9 +5,6 @@ var methodOverride = require("method-override");
 var app = express();
 var session = require('express-session')
 
-//Create ability to make API/http calls:
-    request = require('request'),
-
 //In order to track sessions, express-session is required (command-line:npm install --save express-session):
     session = require("express-session"),
     app = express();
