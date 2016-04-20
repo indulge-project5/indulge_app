@@ -3,13 +3,10 @@ var db = require('./models');
 var bodyParser = require('body-parser');
 var methodOverride = require("method-override");
 var app = express();
-var session = require('express-session')
+var session = require('express-session');
+var app = express();
 
-//In order to track sessions, express-session is required (command-line:npm install --save express-session):
-    session = require("express-session"),
-    app = express();
-
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -194,10 +191,11 @@ app.get('/logout', function(req,res){
 // For development
 // app.listen(3000);
 
-// For Heroku
+// app.listen(process.env.PORT || 3000)
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
 
 // app.listen(process.env.PORT || 5000), function () {
 //   console.log("SERVER RUNNING");
