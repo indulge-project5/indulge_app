@@ -6,6 +6,9 @@ var app = express();
 var session = require('express-session');
 var app = express();
 
+//Create ability to make API/http calls:
+    request = require('request'),
+
 app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(__dirname + '/public'));
