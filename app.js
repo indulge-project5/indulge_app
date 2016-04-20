@@ -198,7 +198,7 @@ app.get('/logout', function(req,res){
 // });
 
 //Telling server to listen to the site:
-app.listen(process.env.PORT || 5432), function () {
+app.listen(process.env.PORT || 3000), function () {
   console.log("SERVER RUNNING");
 };
 
