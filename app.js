@@ -23,7 +23,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Set up method override to work with POST requests that have the parameter "_method=DELETE"
 app.use(methodOverride('_method'));
 
-
+//SETTING THE APP TO LISTEN TO LOCAL SERVER ON PORT 3000:
+app.listen(process.env.PORT || 3000);
 
 //Defining the req.session (specific user who logs in):
 app.use(session({
@@ -194,16 +195,15 @@ app.get('/logout', function(req,res){
 // For development
 // app.listen(3000);
 
-// For Heroku
-// app.listen(app.get('port'), function() {
-//   console.log('Node app is running on port', app.get('port'));
-// });
+For Heroku
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
 // app.listen(process.env.PORT || 5000), function () {
 //   console.log("SERVER RUNNING");
 // };
 
-//SETTING THE APP TO LISTEN TO LOCAL SERVER ON PORT 3000:
-app.listen(process.env.PORT || 3000);
+
 
 
