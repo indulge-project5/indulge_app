@@ -9,6 +9,8 @@ var session = require('express-session')
     session = require("express-session"),
     app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use(express.static(__dirname + '/public'));
 
 // views is directory for all template files
@@ -22,9 +24,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // Set up method override to work with POST requests that have the parameter "_method=DELETE"
 app.use(methodOverride('_method'));
-
-//SETTING THE APP TO LISTEN TO LOCAL SERVER ON PORT 3000:
-app.listen(process.env.PORT || 3000);
 
 //Defining the req.session (specific user who logs in):
 app.use(session({
@@ -195,7 +194,7 @@ app.get('/logout', function(req,res){
 // For development
 // app.listen(3000);
 
-For Heroku
+// For Heroku
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
