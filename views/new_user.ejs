@@ -67,20 +67,27 @@
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
-		<div>
-			<h1>Sign up!:</h1>
-			<!-- Note that when submitted, the form
-		       sends a POST request to the /users
-		       route -->
-			<form method="POST" action="/users">
-		    	<input type="text" name="first_name" placeholder="first name">
-		    	<input type="text" name="last_name" placeholder="last name">
-		    	<input type="number" name="phone" placeholder="phone">
-		    	<input type="number" name="partner_phone" placeholder="partner phone">
-		    	<input type="text" name="email" placeholder="email">
-		    	<input type="text" name="password" placeholder="password">
-		    	<button type="submit">Submit</button>
-			</form>
-		</div>
+		<!-- Bootstrap core JavaScript -->
+	    <div class="container-fluid">
+	      <div class="row-fluid">
+	        <div class="span3 centering text-center">
+	          <h1>Sign up!</h1>
+	          <div>
+	            <form method="POST" action="/users">
+			    	<input type="text" name="first_name" placeholder="first name">
+			    	<input type="text" name="last_name" placeholder="last name">
+			    	<input type="number" name="phone" placeholder="phone">
+			    	<input type="number" name="partner_phone" placeholder="partner phone">
+			    	<input type="text" name="email" placeholder="email">
+			    	<input type="text" name="password" placeholder="password">
+			    	<button type="submit">Submit</button>
+				</form>
+	          </div>
+	          <p>
+	            <br>Don't yet have an account? Sign up <a href="signup">here</a>.
+	          </p>
+	        </div>
+	      </div>
+	    </div>
 	</body>
 </html>
