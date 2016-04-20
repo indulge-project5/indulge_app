@@ -113,13 +113,6 @@ app.get('/notes/new', function(req,res) {
   }
 });
 
-app.get('/notes', function(req,res) {
-  db.Note.all().then(function(nts){
-  	console.log("nts is: ",nts);
-    res.render('notes', {n: nts});
-  })
-});
-
 app.get('/users/new', function(req,res) {
 
   res.render('new_user');
@@ -127,60 +120,28 @@ app.get('/users/new', function(req,res) {
 
 
 
-app.get('/users/:id/:cid/notes', function(req,res) {
-  var userId = req.params.id;
-  var c_id = req.params.cid;
-  console.log("THIS IS THE userId: " + userId);
-  db.Note.findAll({
-    where: {
-      $or: {
-        UserId:userId, user_phone:c_id
-      }}})
-  .then(function(nts) {
-    console.log("The notes are: ", nts);
-    res.render('couple_notes', { myNote: nts});
+app.get('/notes', function(req,res) {
+  req.currentUser().then(function (user) {
+    console.log("THE USER IS:", user);
+    console.log("THE USER ID IS:", user.id);
+    console.log("THE USER partner phone IS:", user.partner_phone);
+    var userId = user.id;
+    var phone = user.partner_phone;
+    db.Note.findAll({
+      where: {
+        $or: {
+          UserId:userId, user_phone:phone
+        }
+      }
+    }).then(function(nts) {
+      console.log("The notes are: ", nts);
+      res.render('couple_notes'
+        , { myNote: nts}
+        );
+    })
   })
 });
 
-
-// DOESN'T WORK
-//   db.Note.find({$or:[{"UserId":userId},{"user_phone":c_id}]})
-//     .then(function(nts) {
-//       console.log("The notes are: ", nts);
-//       res.render('couple_notes', { myNote: nts});
-//     });
-// });
-
-
-// DOESN'T WORK
-//   db.Note.find({ where: {UserId: userId }})
-//     .then(function(nts) {
-//       console.log(nts);
-//       res.render('couple_notes', { myNote: nts});
-//     });  
-// });
-
-
-
-// DOESN'T WORK
-//   db.Note.findAll({ attributes: ['title','description','user_phone','UserId'],
-//     where: {UserId: userId }})
-//   db.Note.findAll({ attributes: ['title','description','user_phone','UserId'],
-//     where: {user_phone: u_ph}})
-//     .then(function(nts) {
-//       console.log("This is the notes: ", nts);
-//       res.render('couple_notes', {myNotes: nts});
-//     });  
-// });
-
-// DOESN'T WORK
-//   db.Note.findAll({where: Sequelize.or({
-//     user_phone:u_ph},{UserId:userId})})
-//     .then(function(nts) {
-//       console.log("This is the notes: ", nts);
-//       res.render('couple_notes', {myNotes: nts});
-//     });  
-// });
 
 //Creating post request for user login:
 app.post("/login", function (req, res) {
