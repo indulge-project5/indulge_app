@@ -147,7 +147,7 @@ app.post("/signup", function (req, res) {
   var first_name = req.body.first_name;
   var last_name = req.body.last_name;
   var phone = req.body.phone;
-  var partner_ph = req.body.partner_phone;
+  var partner_phone = req.body.partner_phone;
   var email = req.body.email;
   var password = req.body.password;
   //Creates a new user using createSecure function (from user.js file):
