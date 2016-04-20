@@ -175,7 +175,8 @@ app.post('/notes/:id/:phone', function(req,res) {
   // var user_id = req.params.id;
   db.Note.create({title: note_title, description: desc, UserId: id, user_phone:phone})
     .then(function(note) {
-  res.redirect('/notes');
+  res.redirect('/notes/new');
+  
   });
 });
 
@@ -197,7 +198,7 @@ app.get('/logout', function(req,res){
 // });
 
 //Telling server to listen to the site:
-app.listen(process.env.PORT || 3000), function () {
+app.listen(process.env.PORT || 5432), function () {
   console.log("SERVER RUNNING");
 };
 
