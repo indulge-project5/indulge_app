@@ -152,7 +152,7 @@ app.post("/signup", function (req, res) {
   var password = req.body.password;
   //Creates a new user using createSecure function (from user.js file):
   db.User.createSecure(email,password,first_name,last_name,phone,partner_phone).then(function(user){
-        res.render("user/login");
+        res.render("/login");
     });
 });
 
