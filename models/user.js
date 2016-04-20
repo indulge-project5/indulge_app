@@ -20,11 +20,11 @@ module.exports = function(sequelize, DataTypes) {
         }
         return this.create({
           email: email,
-          password_digest: password,
+          password: password,
           first_name: first_name,
           last_name: last_name,
           phone: phone,
-          partner_phone: p_ph
+          partner_phone: partner_phone
         });
       },
       authenticate: function(email, password) {
