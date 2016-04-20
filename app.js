@@ -193,13 +193,6 @@ app.get('/logout', function(req,res){
 
 // app.listen(process.env.PORT || 3000)
 app.listen(app.get('port'), function() {
-  if (process.env.DATABASE_URL) {
-  // the application is executed on Heroku ... use the postgres database
-  sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialect:  'postgres',
-    protocol: 'postgres',
-    logging:  true //false
-  });
   console.log('Node app is running on port', app.get('port'));
 });
 
