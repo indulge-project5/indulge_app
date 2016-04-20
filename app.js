@@ -140,6 +140,23 @@ app.get('/notes', function(req,res) {
 });
 
 
+//Creating post request to add a new user to the users table:
+//page where user will enter new user info:
+app.post("/signup", function (req, res) {
+  //Creating variables from params entered by new user (from user/signup.ejs form):
+  var first_name = req.body.first_name;
+  var last_name = req.body.last_name;
+  var phone = req.body.phone;
+  var partner_ph = req.body.partner_phone;
+  var email = req.body.email;
+  var password = req.body.password;
+  //Creates a new user using createSecure function (from user.js file):
+  db.User.createSecure(email,password,first_name,last_name,phone,partner_phone).then(function(user){
+        res.render("user/login");
+    });
+});
+
+
 //Creating post request for user login:
 app.post("/login", function (req, res) {
   var user = req.body;
@@ -176,7 +193,7 @@ app.post('/notes/:id/:phone', function(req,res) {
   db.Note.create({title: note_title, description: desc, UserId: id, user_phone:phone})
     .then(function(note) {
   res.redirect('/notes/new');
-  
+
   });
 });
 

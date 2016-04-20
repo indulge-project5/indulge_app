@@ -14,6 +14,19 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         this.hasMany(models.Note);
       },
+      createSecure: function(email, password) {
+        if(password.length < 1) {
+          throw new Error("Password too short");
+        }
+        return this.create({
+          email: email,
+          password_digest: password,
+          first_name: first_name,
+          last_name: last_name,
+          phone: phone,
+          partner_phone: p_ph
+        });
+      },
       authenticate: function(email, password) {
         // find a user in the DB
         return this.find({
