@@ -82,7 +82,7 @@
   <h1>Notes:</h1>
   <% myNote.forEach(function(nt) { %>
   <div>
-    <a href="#" data-toggle="modal" data-target="#myModal"><%= nt.title %></a>
+    <a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
   </div>
   <% }) %>
 

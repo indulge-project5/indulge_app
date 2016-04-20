@@ -77,6 +77,18 @@ app.get('/login', function(req,res){
   }
 });
 
+app.get('/users/:uId/notes/:nId', function(req,res) {
+  var user_id = req.params.uId;
+  var note_id = req.params.nId;
+  db.Note.find({
+    where: {
+      id: note_id
+    }
+  }).then(function (nt) {
+    res.render('note_show', {note: nt, uid: user_id});
+  })
+});
+
 app.get('/users', function(req,res) {
   db.User.all().then(function(mates){
   	console.log("mates is: ", mates);
@@ -133,12 +145,11 @@ app.get('/notes', function(req,res) {
     }).then(function(nts) {
       console.log("The notes are: ", nts);
       res.render('couple_notes'
-        , { myNote: nts}
+        , { myNote: nts, user: user}
         );
     })
   })
 });
-
 
 //Creating post request to add a new user to the users table:
 //page where user will enter new user info:
@@ -195,6 +206,23 @@ app.post('/notes/:id/:phone', function(req,res) {
 
   });
 });
+
+//VIDEO DELETE
+app.delete('/notes/:nid', function (req,res) {
+  // console.log("1 test");
+  var noteId = req.params.nid;
+  
+  // console.log("2 This is the video ID: ",videoId);
+  db.Note.findById(noteId)
+    .then(function(foundNt){
+      foundNt.destroy()
+      .then(function() {
+        res.redirect('/notes');
+      });
+    });
+});
+
+
 
 //Creating logout for current User:
 app.get('/logout', function(req,res){
