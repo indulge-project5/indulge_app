@@ -5,6 +5,13 @@ var methodOverride = require("method-override");
 var app = express();
 var session = require('express-session');
 var app = express();
+var pg = require('pg');
+
+pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+});
 
 app.set('port', (process.env.PORT || 3000));
 
