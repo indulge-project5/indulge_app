@@ -186,7 +186,7 @@ app.post("/login", function (req, res) {
     .then(function (dbUser) {
       if(dbUser) {
         req.login(dbUser);
-        res.redirect('/notes');
+        res.redirect('/notes/new');
       } else {
         res.send('You failed');
       }
@@ -227,7 +227,7 @@ app.put('/notes/:id', function(req,res) {
   db.Note.findById(noteId)
               .then(function(nt){
                 nt.updateAttributes({
-                  title: title,
+                  title: (title||noteId.title),
                   description: description})
                 .then(function(savedNt) {
                   res.redirect('/notes');

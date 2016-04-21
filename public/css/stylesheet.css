@@ -1,0 +1,17 @@
+.box {
+  display: inline-block;
+  width: 47%;
+  height: 10em;
+  margin: 5px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.red {
+	color: red;
+}
+
+.center {
+	margin: 0 auto;
+}
