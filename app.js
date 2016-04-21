@@ -142,6 +142,8 @@ app.get('/users/new', function(req,res) {
 
 
 app.get('/notes', function(req,res) {
+  var myNotes = [];
+  var pNotes = [];
   req.currentUser().then(function (user) {
     console.log("THE USER IS:", user);
     console.log("THE USER ID IS:", user.id);
@@ -156,10 +158,20 @@ app.get('/notes', function(req,res) {
       }
     }).then(function(nts) {
       console.log("The notes are: ", nts);
-      res.render('couple_notes'
-        , { myNote: nts, user: user}
-        );
+      for (var key in nts) {
+        console.log("The nts[key] is: ", nts[key]);
+        console.log("nts[key].UserId is: ",nts[key].UserId);
+        if (user.id === nts[key].UserId){
+          myNotes.push(nts[key]);
+        }
+        else {
+          pNotes.push(nts[key]);
+        }
+      }
+      res.render('couple_notes', { myNotes, pNotes, user: user});
     })
+    console.log("myNotes is: ", myNts);
+    console.log("pNotes is: ", pNts);
   })
 });
 

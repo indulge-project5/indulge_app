@@ -70,16 +70,35 @@
 		</nav>
 		<div>
 			<h1>Notes:</h1>
-			<div class="all-notes">
-				<% myNote.forEach(function(nt) { %>
-					<div class="box">
-						<a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
-					</div>
-				<% }) %>
+			<div class="container">
+			  <div class="row">
+			    <div class="col-xs-6">
+					<% myNotes.forEach(function(nt) { %>
+						<div class="box blue">
+							<a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
+							<%= nt.UserId %>
+							<%= nt.user_id %>
+						</div>
+					<% }) %>
+				</div>
+			    <div class="col-xs-6">
+					<% pNotes.forEach(function(nt) { %>
+						<div class="box pink">
+							<a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
+							<%= nt.UserId %>
+							<%= nt.user_id %>
+						</div>
+					<% }) %>
+				</div>
+			  </div>
 			</div>
-			<!-- Modal -->
-			<div id="myModal" class="modal fade" role="dialog">
-			  <div class="modal-dialog">
+				<p id="demo" onclick="myFunction(this, 'red')">Click me to change my text color.</p>
+
+<script>
+function myFunction(elmnt,clr) {
+    elmnt.style.color = clr;
+}
+</script>
 
 			    <!-- Modal content-->
 			    <div class="modal-content">
