@@ -79,6 +79,10 @@
 		    <%= note.description %>
 		    </div>
 		    <div>
+		    <form action="/notes/<%= note.id %>/edit">
+			    <input type="submit" value="Edit">
+			</form>
+
 		    <form method="POST" action="/notes/<%=note.id%>?_method=delete">
 		       <button type="submit">Delete Note</button>
 		     </form>

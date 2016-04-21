@@ -89,6 +89,18 @@ app.get('/users/:uId/notes/:nId', function(req,res) {
   })
 });
 
+
+app.get('/notes/:nId/edit', function(req,res) {
+  var noteId = req.params.nId;
+  var title = req.body.title;
+  var description = req.body.description;
+  db.Note.findById(noteId)
+    .then(function(nt) {
+      res.render('note_edit', {note: nt});
+    });
+});
+
+
 app.get('/users', function(req,res) {
   db.User.all().then(function(mates){
   	console.log("mates is: ", mates);
@@ -206,6 +218,26 @@ app.post('/notes/:id/:phone', function(req,res) {
 
   });
 });
+
+
+app.put('/notes/:id', function(req,res) {
+  var noteId = req.params.id;
+  var title = req.body.title;
+  var description = req.body.description;
+  db.Note.findById(noteId)
+              .then(function(nt){
+                nt.updateAttributes({
+                  title: title,
+                  description: description})
+                .then(function(savedNt) {
+                  res.redirect('/notes');
+                });
+              });
+});
+
+
+
+
 
 //VIDEO DELETE
 app.delete('/notes/:nid', function (req,res) {
