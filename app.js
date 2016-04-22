@@ -236,22 +236,31 @@ app.put('/notes/:id', function(req,res) {
   var noteId = req.params.id;
   var title = req.body.title;
   var description = req.body.description;
-  db.Note.findById(noteId)
-              .then(function(nt){
-                nt.updateAttributes({
-                  title: (title||noteId.title),
-                  description: description})
-                .then(function(savedNt) {
-                  res.redirect('/notes');
-                });
-              });
+  db.Note.findById(noteId).then(function(nt){
+    nt.updateAttributes({
+      title: (title||noteId.title),
+      description: description})
+    .then(function(savedNt) {
+      res.redirect('/notes');
+    });
+  });
+});
+
+app.delete('/users/:id', function (req,res) {
+  // console.log("1 test");
+  var uId = req.params.id;
+  // console.log("2 This is the video ID: ",videoId);
+  db.User.findById(uId)
+    .then(function(fUser){
+      fUser.destroy()
+      .then(function() {
+        res.redirect('/users');
+      });
+    });
 });
 
 
-
-
-
-//VIDEO DELETE
+//Note DELETE
 app.delete('/notes/:nid', function (req,res) {
   // console.log("1 test");
   var noteId = req.params.nid;
@@ -265,8 +274,6 @@ app.delete('/notes/:nid', function (req,res) {
       });
     });
 });
-
-
 
 //Creating logout for current User:
 app.get('/logout', function(req,res){

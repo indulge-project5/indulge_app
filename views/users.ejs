@@ -75,7 +75,12 @@
     <%= mate.phone %>
     <%= mate.partner_phone %>
     <%= mate.partner_id %>
+    <%= mate.email %>
+    <%= mate.password %>
   </div>
+        <form method="POST" action="/users/<%=mate.id%>?_method=delete">
+         <button type="submit">Delete Note</button>
+       </form>
   <% }) %>
 </body>
 </html>

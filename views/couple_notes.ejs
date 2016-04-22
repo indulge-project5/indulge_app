@@ -74,7 +74,7 @@
 			  <div class="row">
 			    <div class="col-xs-6">
 					<% myNotes.forEach(function(nt) { %>
-						<div class="box blue">
+						<div class="box  blue">
 							<a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
 							<%= nt.UserId %>
 							<%= nt.user_id %>
@@ -91,29 +91,6 @@
 					<% }) %>
 				</div>
 			  </div>
-			</div>
-				<p id="demo" onclick="myFunction(this, 'red')">Click me to change my text color.</p>
-
-<script>
-function myFunction(elmnt,clr) {
-    elmnt.style.color = clr;
-}
-</script>
-
-			    <!-- Modal content-->
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal">&times;</button>
-			        <h4 class="modal-title">Note Title</h4>
-			      </div>
-			      <div class="modal-body">
-			        <p>The text of the note will be shown here.</p>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			      </div>
-			    </div>
-
 			</div>
 		</div>
 	</body>
