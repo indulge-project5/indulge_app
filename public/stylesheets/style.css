@@ -35,8 +35,15 @@
 #icon-navbar .col-xs-4 {
 	border: 1px solid black;
 	line-height: 40px;
+	height: 50px;
 }
 
 .navbar-collapse ul li a {
 	padding-left: 30px;
+}
+
+.navbar-nav {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 100%;
 }
