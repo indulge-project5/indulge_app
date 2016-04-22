@@ -1,6 +1,11 @@
-.box {
+#all-notes-page .all-notes {
+	margin-top: 8em;
+	text-align: center;
+}
+
+#all-notes-page .box {
   display: inline-block;
-  width: 46.5%;
+  width: 10em;
   height: 10em;
   margin: 5px;
   text-align: center;
@@ -8,18 +13,14 @@
   border-radius: 5px;
 }
 
-.red {
-	color: red;
-}
-
-.center {
+#all-notes-page .center {
 	margin: 0 auto;
 }
 
-.blue {
+#all-notes-page .blue {
 	background-color: blue;
 }
 
-.pink {
+#all-notes-page .pink {
 	background-color: pink;
 }
