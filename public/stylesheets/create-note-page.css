@@ -1,0 +1,12 @@
+#create-note-page .add-note {
+	margin-top: 7em;
+}
+
+.fade_div {
+    display: none;
+    position: fixed;
+    background-color: yellow;
+    border: 1px solid black;
+    top: 300px;
+    left: 300px
+}

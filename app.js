@@ -226,11 +226,19 @@ app.post('/notes/:id/:phone', function(req,res) {
   // var u_ph = req.params.phone;
   // var user_id = req.params.id;
   db.Note.create({title: note_title, description: desc, UserId: id, user_phone:phone})
-    .then(function(note) {
-  res.redirect('/notes/new');
-
+  .then(function(note) {
+    setTimeout(function() {
+      res.redirect('/notes/new');
+    }, 1700);
   });
 });
+
+
+setTimeout(function() {
+    console.log('Blah blah blah blah extra-blah');
+}, 3000);
+
+
 
 
 app.put('/notes/:id', function(req,res) {

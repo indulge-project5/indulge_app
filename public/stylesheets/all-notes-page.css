@@ -24,3 +24,17 @@
 #all-notes-page .pink {
 	background-color: pink;
 }
+
+
+
+#statusmessage{
+    position:fixed;
+    bottom:0;
+    padding:0 5px;
+    line-height:25px;
+    background-color:#eeee99;
+    margin-bottom:-25px;
+    font-weight:bold;
+    left:0;
+    right:0;
+}

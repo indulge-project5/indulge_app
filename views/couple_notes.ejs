@@ -100,5 +100,17 @@
 				</div>
 			</div>
 		</div>
+		<button id="status">show status box</button>
+<div id="statusmessage"></div>
+
+<script type="text/javascript">
+	$("#status").click(function() {
+    $('#statusmessage').text('#status button was clicked..').animate({'margin-bottom':0},200);
+    setTimeout( function(){
+        $('#statusmessage').animate({'margin-bottom':-25},200);
+    }, 5*500);
+});
+</script>
+
 	</body>
 </html>
