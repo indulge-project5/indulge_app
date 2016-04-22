@@ -38,3 +38,21 @@
 	height: 3em;
 	text-align: center;
 }
+
+.modal button {
+	background: none;
+    border: none;
+}
+
+
+.modal-footer form {
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+}
+
+#trash {
+	float: left;
+	margin-left: 0px;
+	padding-left: 0px;
+}
