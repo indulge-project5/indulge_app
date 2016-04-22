@@ -100,13 +100,14 @@ app.get('/notes/:nId/edit', function(req,res) {
     });
 });
 
-
-app.get('/users', function(req,res) {
-  db.User.all().then(function(mates){
-  	console.log("mates is: ", mates);
-    res.render('users', {peers: mates});
-  })
-});
+// DO NOT USE!!!!!
+// app.get('/users', function(req,res) {
+//   db.User.all().then(function(mates){
+//   	console.log("mates is: ", mates);
+//     res.render('users', {peers: mates});
+//   })
+// });
+// DO NOT USE!!!!!!
 
 app.get('/theme', function(req,res) {
     res.render('theme');
@@ -246,18 +247,20 @@ app.put('/notes/:id', function(req,res) {
   });
 });
 
-app.delete('/users/:id', function (req,res) {
-  // console.log("1 test");
-  var uId = req.params.id;
-  // console.log("2 This is the video ID: ",videoId);
-  db.User.findById(uId)
-    .then(function(fUser){
-      fUser.destroy()
-      .then(function() {
-        res.redirect('/users');
-      });
-    });
-});
+// DO NOT USE!!!!!!!
+// app.delete('/users/:id', function (req,res) {
+//   // console.log("1 test");
+//   var uId = req.params.id;
+//   // console.log("2 This is the video ID: ",videoId);
+//   db.User.findById(uId)
+//     .then(function(fUser){
+//       fUser.destroy()
+//       .then(function() {
+//         res.redirect('/users');
+//       });
+//     });
+// });
+// DO NOT USE!!!!!!!!
 
 
 //Note DELETE
