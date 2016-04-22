@@ -1,0 +1,20 @@
+.design-yellow {
+	background-color: yellow;
+	margin: 0px;
+}
+
+.container-fluid {
+	padding: 0px;
+}
+
+.navbar-right {
+	padding-right: 20px;
+}
+
+.pull-left {
+	margin-left: 20px;
+}
+
+.glyphicon {
+  margin-left: 50%;
+}
