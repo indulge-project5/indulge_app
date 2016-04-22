@@ -86,36 +86,85 @@
             </div>
           </div><!-- /.container-fluid -->
         </nav>
-			<div class='all-notes'>
-				<div class="container">
-				  <div class="row">
-				    <div class="col-xs-6">
-					    <div class="my-notes">
-					    	<p>My Notes</p>
-							<% myNotes.forEach(function(nt) { %>
-								<div class="box  blue">
-									<a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
-									<%= nt.UserId %>
-									<%= nt.user_id %>
-								</div>
-							<% }) %>
-						</div>
+		<div class='all-notes'>
+			<div class="container">
+			  <div class="row">
+			    <div class="col-xs-6">
+			    	<div class="my-notes">
+			    		<p class="design-purple">My Notes</p>
+						<% myNotes.forEach(function(mnt) { %>
+							<!-- <div class="box"> -->
+							<a data-id="<%= mnt.description %>" data-id2="<%= mnt.title %>" data-id3="<%= mnt.id %>" data-id4="<%= user.id %>" title="Add this item" class="open-AddBookDialog box blue" href="#addBookDialog"><%= mnt.title %></a>
+							<!-- </div> -->
+							<div class="modal fade" id="addBookDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							        <h4 class="modal-title" id="myModalLabel">Title</h4>
+							        <input type="text" name="bookId4" id="bookId4" value="" />
+							      </div>
+							      <div class="modal-body">
+							      	<h4 class="modal-title" id="myModalLabel">Description</h4>
+							        <input type="text" name="bookId" id="bookId" value="" />
+							      </div>
+							      <div class="modal-footer">
+							      	<p>edit and delete</p>
+							      </div>
+							    </div><!-- /.modal-content -->
+							  </div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+						<% }) %>
 					</div>
-				    <div class="col-xs-6">
-				    	<div class="partner-notes">
-				    		<p>Partner's Notes</p>
-							<% pNotes.forEach(function(nt) { %>
-								<div class="box pink">
-									<a href="/users/<%=user.id%>/notes/<%=nt.id%>"><%= nt.title %></a>
-									<%= nt.UserId %>
-									<%= nt.user_id %>
-								</div>
-							<% }) %>
-						</div>
-					</div>
-				  </div>
 				</div>
+				<div class="col-xs-6">
+			    	<div class="partner-notes">
+			    		<p class="design-purple">Partner's Notes</p>
+						<% pNotes.forEach(function(pnt) { %>
+							<!-- <div class="box"> -->
+							<a data-id="<%= pnt.description %>" data-id2="<%= pnt.title %>" title="Add this item" class="open-AddBookDialog box pink" href="#addBookDialog"><%= pnt.title %></a>
+							<!-- </div> -->
+							<div class="modal fade" id="addBookDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							        <h4 class="modal-title" id="myModalLabel">Title</h4>
+							        <input type="text" name="bookId1" id="bookId1" value="" />
+							      </div>
+							      <div class="modal-body">
+							      	<h4 class="modal-title" id="myModalLabel">Description</h4>
+							        <input type="text" name="bookId" id="bookId" value="" />
+							      </div>
+							    </div><!-- /.modal-content -->
+							  </div><!-- /.modal-dialog -->
+							</div><!-- /.modal -->
+						<% }) %>
+					</div>
+				</div>
+			  </div>
 			</div>
 		</div>
+	  </div>
 	</body>
 </html>
+
+<script>
+$(document).on("click", ".open-AddBookDialog", function (e) {
+
+	e.preventDefault();
+
+	var _self = $(this);
+
+	var myBookId = _self.data('id');
+	$("#bookId").val(myBookId);
+	var myBookId2 = _self.data('id2');
+	$("#bookId2").val(myBookId2);
+	var myBookId3 = _self.data('id3');
+	$("#bookId3").val(myBookId3);
+	var myBookId4 = _self.data('id4');
+	$("#bookId4").val(myBookId4);
+	$(_self.attr('href')).modal('show');
+});
+</script>
+

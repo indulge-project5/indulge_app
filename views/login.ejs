@@ -9,6 +9,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel='stylesheet' href='../stylesheets/login-page.css'/>
         <link rel='stylesheet' href='../stylesheets/style.css'/>
         <!-- <link rel='stylesheet' href='/style.css' /> -->
     </head>
@@ -89,17 +90,19 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3 centering text-center">
-          <h1>Login</h1>
-          <div>
-            <form method="POST" action="/login">
-              <input type="text" name="email" placeholder="Email"></br></br>
-              <input type="password" name="password" placeholder="Password"></br></br>
-              <button>Log in</button>
-            </form>
+          <div class="login-form">
+            <h1>Login</h1>
+            <div>
+              <form method="POST" action="/login">
+                <input type="text" name="email" placeholder="Email"></br></br>
+                <input type="password" name="password" placeholder="Password"></br></br>
+                <button>Log in</button>
+              </form>
+            </div>
+            <p>
+              <br>Don't yet have an account? Sign up <a href="signup">here</a>.
+            </p>
           </div>
-          <p>
-            <br>Don't yet have an account? Sign up <a href="signup">here</a>.
-          </p>
         </div>
       </div>
     </div>

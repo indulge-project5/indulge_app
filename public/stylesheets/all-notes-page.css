@@ -5,12 +5,19 @@
 
 #all-notes-page .box {
   display: inline-block;
-  width: 10em;
-  height: 10em;
+  width: 8em;
+  height: 8em;
+  line-height: 8em;
   margin: 5px;
   text-align: center;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+#all-notes-page .box a {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
 }
 
 #all-notes-page .center {
@@ -25,16 +32,9 @@
 	background-color: pink;
 }
 
-
-
-#statusmessage{
-    position:fixed;
-    bottom:0;
-    padding:0 5px;
-    line-height:25px;
-    background-color:#eeee99;
-    margin-bottom:-25px;
-    font-weight:bold;
-    left:0;
-    right:0;
+#all-notes-page .modal-content input {
+	border:none;
+	width: 100%;
+	height: 3em;
+	text-align: center;
 }
