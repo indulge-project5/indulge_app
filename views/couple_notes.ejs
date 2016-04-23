@@ -94,7 +94,7 @@
 			    		<p class="design-purple">My Notes</p>
 						<% myNotes.forEach(function(mnt) { %>
 							<!-- <div class="box"> -->
-							<a data-id="<%= mnt.title %>" data-id2="<%= mnt.description %>" data-id3="<%= mnt.id %>" data-id4="<%= user.id %>" title="Add this item" class="open-AddBookDialog box blue" href="#addBookDialog"><%= mnt.title %></a>
+							<a data-id="<%= mnt.title %>" data-id2="<%= mnt.description %>" data-id3="<%= mnt.id %>" data-id4="<%= user.id %>" title="Add this item" class="open-AddBookDialog box blue text-white overflow" href="#addBookDialog"><%= mnt.title %></a>
 							<!-- </div> -->
 							<div class="modal fade" id="addBookDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							  <div class="modal-dialog">
@@ -132,7 +132,7 @@
 			    		<p class="design-purple">Partner's Notes</p>
 						<% pNotes.forEach(function(pnt) { %>
 							<!-- <div class="box"> -->
-							<a data-id="<%= pnt.title %>" data-id2="<%= pnt.description %>" title="Add this item" class="open-AddBookDialog box pink" href="#addBookDialog"><%= pnt.title %></a>
+							<a data-id="<%= pnt.title %>" data-id2="<%= pnt.description %>" title="Add this item" class="open-AddBookDialog box pink overflow" href="#addBookDialog"><%= pnt.title %></a>
 							<!-- </div> -->
 						<% }) %>
 					</div>

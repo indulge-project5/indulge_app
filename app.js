@@ -78,26 +78,38 @@ app.get('/login', function(req,res){
 });
 
 app.get('/users/:uId/notes/:nId', function(req,res) {
-  var user_id = req.params.uId;
-  var note_id = req.params.nId;
-  db.Note.find({
-    where: {
-      id: note_id
-    }
-  }).then(function (nt) {
-    res.render('note_show', {note: nt, uid: user_id});
-  })
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    // If no user is currently logged in, then render the login page:
+      res.render("login");
+    } 
+  else {
+    var user_id = req.params.uId;
+    var note_id = req.params.nId;
+    db.Note.find({
+      where: {
+        id: note_id
+      }
+    }).then(function (nt) {
+      res.render('note_show', {note: nt, uid: user_id});
+    })
+  }
 });
 
 
 app.get('/notes/:nId/edit', function(req,res) {
-  var noteId = req.params.nId;
-  var title = req.body.title;
-  var description = req.body.description;
-  db.Note.findById(noteId)
-    .then(function(nt) {
-      res.render('note_edit', {note: nt});
-    });
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    // If no user is currently logged in, then render the login page:
+      res.render("login");
+    } 
+  else {
+    var noteId = req.params.nId;
+    var title = req.body.title;
+    var description = req.body.description;
+    db.Note.findById(noteId)
+      .then(function(nt) {
+        res.render('note_edit', {note: nt});
+      })
+  }
 });
 
 // DO NOT USE!!!!!
@@ -136,44 +148,55 @@ app.get('/notes/new', function(req,res) {
 });
 
 app.get('/users/new', function(req,res) {
-
-  res.render('new_user');
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    // If no user is currently logged in, then render the login page:
+      res.render("new_user");
+    } 
+  else {
+  res.render('/');
+  }
 });
 
 
 
 app.get('/notes', function(req,res) {
-  var myNotes = [];
-  var pNotes = [];
-  req.currentUser().then(function (user) {
-    console.log("THE USER IS:", user);
-    console.log("THE USER ID IS:", user.id);
-    console.log("THE USER partner phone IS:", user.partner_phone);
-    var userId = user.id;
-    var phone = user.partner_phone;
-    db.Note.findAll({
-      where: {
-        $or: {
-          UserId:userId, user_phone:phone
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    // If no user is currently logged in, then render the login page:
+      res.render("login");
+    } 
+  else {
+    var myNotes = [];
+    var pNotes = [];
+    req.currentUser().then(function (user) {
+      console.log("THE USER IS:", user);
+      console.log("THE USER ID IS:", user.id);
+      console.log("THE USER partner phone IS:", user.partner_phone);
+      var userId = user.id;
+      var phone = user.partner_phone;
+      db.Note.findAll({
+        where: {
+          $or: {
+            UserId:userId, user_phone:phone
+          }
         }
-      }
-    }).then(function(nts) {
-      console.log("The notes are: ", nts);
-      for (var key in nts) {
-        console.log("The nts[key] is: ", nts[key]);
-        console.log("nts[key].UserId is: ",nts[key].UserId);
-        if (user.id === nts[key].UserId){
-          myNotes.push(nts[key]);
+      }).then(function(nts) {
+        console.log("The notes are: ", nts);
+        for (var key in nts) {
+          console.log("The nts[key] is: ", nts[key]);
+          console.log("nts[key].UserId is: ",nts[key].UserId);
+          if (user.id === nts[key].UserId){
+            myNotes.push(nts[key]);
+          }
+          else {
+            pNotes.push(nts[key]);
+          }
         }
-        else {
-          pNotes.push(nts[key]);
-        }
-      }
-      res.render('couple_notes', { myNotes, pNotes, user: user});
+        res.render('couple_notes', { myNotes, pNotes, user: user});
+      })
+      console.log("myNotes is: ", myNts);
+      console.log("pNotes is: ", pNts);
     })
-    console.log("myNotes is: ", myNts);
-    console.log("pNotes is: ", pNts);
-  })
+  }
 });
 
 //Creating post request to add a new user to the users table:
@@ -229,17 +252,9 @@ app.post('/notes/:id/:phone', function(req,res) {
   .then(function(note) {
     setTimeout(function() {
       res.redirect('/notes/new');
-    }, 1700);
+    }, 1600);
   });
 });
-
-
-setTimeout(function() {
-    console.log('Blah blah blah blah extra-blah');
-}, 3000);
-
-
-
 
 app.put('/notes/:id', function(req,res) {
   var noteId = req.params.id;

@@ -20,8 +20,8 @@
 }
 
 .glyphicon {
-	margin-left: 50%;
-    margin-top: 20px;
+	margin-left: 42%;
+    margin-top: 18px;
 }
 
 #icon-navbar {
@@ -46,4 +46,21 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 	width: 100%;
+}
+
+.inline-block img {
+		height: 50px;
+	width: 50px;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.right-float {
+	float: right;
+}
+
+.text-white {
+	color: white;
 }
