@@ -5,6 +5,7 @@ var methodOverride = require("method-override");
 var app = express();
 var session = require('express-session');
 var app = express();
+var twilio = require('./twilio.js');
 
 // app.set('port', (process.env.PORT || 3000));
 
@@ -15,7 +16,7 @@ app.set('views', __dirname + '/views');
 
 // Set the view engine to be "EJS"
 app.set('view engine', 'ejs');
-
+ 
 // Set up body parser
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -54,8 +55,6 @@ app.use("/", function (req, res, next) {
   }
   next(); 
 });
-
-
 
 
 //GET REQUESTS//
@@ -202,15 +201,31 @@ app.get('/notes', function(req,res) {
 //Creating post request to add a new user to the users table:
 //page where user will enter new user info:
 app.post("/signup", function (req, res) {
-  //Creating variables from params entered by new user (from user/signup.ejs form):
-  var first_name = req.body.first_name;
-  var last_name = req.body.last_name;
-  var phone = req.body.phone;
-  var partner_phone = req.body.partner_phone;
-  var email = req.body.email;
-  var password = req.body.password;
+  // Creating object to pass into db and twilio:
+  var new_user = {
+    first_name : req.body.first_name,
+    last_name : req.body.last_name,
+    phone : req.body.phone,
+    partner_phone : req.body.partner_phone,
+    email : req.body.email,
+    password : req.body.password
+  };
+
+  // //Creating variables from params entered by new user (from user/signup.ejs form):
+  // var first_name = req.body.first_name;
+  // var last_name = req.body.last_name;
+  // var phone = req.body.phone;
+  // var partner_phone = req.body.partner_phone;
+  // var email = req.body.email;
+  // var password = req.body.password;
+
+console.log("The new_user is: ", new_user)
+
+  twilio.send_sms_to(new_user);
+
+
   //Creates a new user using createSecure function (from user.js file):
-  db.User.create({first_name: first_name, last_name: last_name, phone: phone, partner_phone: partner_phone, email: email, password: password}).then(function(user){
+  db.User.create({first_name: new_user.first_name, last_name: new_user.last_name, phone: new_user.phone, partner_phone: new_user.partner_phone, email: new_user.email, password: new_user.password}).then(function(user){
         res.render("login");
     });
 });
