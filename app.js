@@ -237,7 +237,7 @@ app.get('/notes', function(req,res) {
             pNotes.push(nts[key]);
           }
         }
-        res.render('couple_notes', { myNotes, pNotes, user: user});
+        res.render('couple_notes', { myNotes:myNotes, pNotes:pNotes, user: user});
       })
       console.log("myNotes is: ", myNts);
       console.log("pNotes is: ", pNts);
