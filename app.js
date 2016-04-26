@@ -5,8 +5,11 @@ var methodOverride = require("method-override");
 var app = express();
 var session = require('express-session');
 var app = express();
+
+// Old twilio code
 var twilio = require('./js/twilio_api.js');
-var twilio_c = require('./js/twilio_codes.js');
+// var twilio_c = require('./js/twilio_codes.js');
+// End old twilio code
 
 // app.set('port', (process.env.PORT || 3000));
 
@@ -147,16 +150,45 @@ app.get('/notes/new', function(req,res) {
   }
 });
 
-app.get('/users/new', function(req,res) {
+app.get('/users/new/:nu_phone/:nup_phone', function(req,res) {
   if((req.session.userId===null)||(req.session.userId===undefined)) {
+    var phone = req.params.nu_phone;
+    var partner_phone = req.params.nup_phone;
     // If no user is currently logged in, then render the login page:
-      res.render("new_user");
+      res.render("partner_signup", {user_phone:phone, p_phone: partner_phone});
     } 
   else {
-  res.render('/');
+  res.redirect('/');
   }
 });
 
+app.get('/users/new', function(req,res) {
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    // If no user is currently logged in, then render the login page:
+      res.render("new_user", {user_phone:'', p_phone: ''});
+    } 
+  else {
+  res.redirect('/');
+  }
+});
+
+// app.get('/psignup/:nu_phone/:nup_phone', function(req,res) {
+//   if((req.session.userId===null)||(req.session.userId===undefined)) {
+//     // If no user is currently logged in, then render the login page:
+//     db.User.find({
+//       where: {
+//         partner_phone: 
+//       }
+//     }).then(function(nts) {
+    
+
+
+//       res.render("partner_conf");
+//     } 
+//   else {
+//   res.redirect('/');
+//   }
+// });
 
 
 app.get('/notes', function(req,res) {
@@ -211,15 +243,25 @@ app.post("/signup", function (req, res) {
     email : req.body.email,
     password : req.body.password
   };
-
-console.log("The new_user is: ", new_user);
-
-  twilio.send_sms_to(new_user);
-
+  console.log("The new_user is: ", new_user);
+  db.User.find({
+    where: {
+      partner_phone: new_user.partner_phone
+    }
+  })
+  .then(function(p_user) {
+    // if (!p_user) {
+      twilio.send_sms_to(new_user);
+    // }
+    // else {
+      // console.log("user already in database")
+    // }
+  })
   //Creates a new user using createSecure function (from user.js file):
-  db.User.create({first_name: new_user.first_name, last_name: new_user.last_name, phone: new_user.phone, partner_phone: new_user.partner_phone, email: new_user.email, password: new_user.password}).then(function(user){
+  db.User.create({first_name: new_user.first_name, last_name: new_user.last_name, phone: new_user.phone, partner_phone: new_user.partner_phone, email: new_user.email, password: new_user.password})
+  .then(function(user){
         res.render("login");
-    });
+  })
 });
 
 //Creating post request for user login:

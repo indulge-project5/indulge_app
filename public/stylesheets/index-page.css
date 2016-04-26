@@ -1,0 +1,54 @@
+.login-signup {
+	margin-top:120px;
+}
+
+.inside {
+	height: 60em;
+    width: 100%;
+}
+
+.photos {
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+#photo1 {
+	background-image: url(../img/sunset.jpg);
+}
+
+#photo2 {
+	background-image: url(../img/couple.jpg);
+}
+
+#photo3 {
+	background-image: url(../img/coffee.jpg);
+}
+
+#photo4 {
+	background-image: url(../img/hands2.jpg);
+}
+
+.background-yellow {
+	background-color: #F9F7DE;
+}
+
+.btm-create {
+	padding: 3em;
+}
+
+@media screen and (max-width: 499px) {
+    #photo1, #photo4 {
+    	background-position: center;
+    	background-size: cover;
+    }
+    #photo2, #photo3 {
+    	background-position: left;
+    	background-size: cover;
+    }
+
+    .inside {
+    	height: 40em;
+    }
+}

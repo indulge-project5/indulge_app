@@ -11,22 +11,25 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel='stylesheet' href='../stylesheets/signup-page.css'/>
         <link rel='stylesheet' href='../stylesheets/style.css'/>
-<!-- <link rel='stylesheet' href='/style.css' /> -->
     </head>
 	<body>
-      <div id="signup-page">
+      <div class="signup-page">
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header design-yellow right-padding">
-            <a class="navbar-brand inline-block middle" href="/"><img class="logo" src="img/newellove.png"></a>
+            <a class="navbar-brand inline-block middle" href="/"><img class="logo" src="http://s20.postimg.org/i15pj1cp9/newellove.png"></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/"><img class="long-logo" src="img/maybe_logo.png"></a>
+              <div class="inline-block">
+                <p class="gabriola">
+                  Indulge
+                </p>
+              </div>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -89,34 +92,40 @@
             </div>
           </div><!-- /.container-fluid -->
         </nav>
-		<!-- Bootstrap core JavaScript -->
-	    <div class="container-fluid">
-	      <div class="row-fluid">
-	        <div class="span3 centering text-center">
-		        <div class="signup-form">
-		          <h1>Sign up!</h1>
-		          <div>
-		            <form method="POST" action="/signup">
-                <label>First Name</label></br>
-				    	<input type="text" name="first_name"></br></br>
-				    	<label>Last Name</label></br>
-              <input type="text" name="last_name"></br></br>
-				    	<label>Phone</label><p>(Numbers only)</p>
-              <input type="number" name="phone" placeholder="5555555555"></br></br>
-				    	<label>Partner's Phone</label><p>(Numbers only)</p>
-              <input type="number" name="partner_phone" placeholder="5555555555"></br></br>
-				    	<label>Email</label></br>
-              <input type="text" name="email"></br></br>
-				    	<label>Password</label></br>
-              <input type="text" name="password"></br></br>
-				    	<button type="submit">Submit</button>
-					</form>
-		          </div>
-		          <p>
-		            <br>Already have an account? Log in <a href="/login">here</a>.
-		          </p>
-		        </div>
-		    </div>
+  		<!-- Bootstrap core JavaScript -->
+  	    <div class="container-fluid">
+  	      <div class="row-fluid">
+  	        <div class="span3 centering text-center">
+  		        <div class="signup-form">
+  		          <h1>Sign up!</h1>
+  		          <div>
+  		            <form method="POST" action="/signup">
+                    <label>First Name
+                    </label></br>
+      				    	<input type="text" name="first_name"></br></br>
+      				    	<label>Last Name
+                    </label></br>
+                    <input type="text" name="last_name"></br></br>
+      				    	<label>Phone
+                    </label><p>(Numbers only)</p>
+                    <input type="number" name="phone" placeholder="1234567890" value="<%= p_phone %>"></br></br>
+      				    	<label>Partner's Phone
+                    </label><p>(Numbers only)</p>
+                    <input type="number" name="partner_phone" placeholder="1234567890" value="<%= user_phone %>"></br></br>
+      				    	<label>Email
+                    </label></br>
+                    <input type="text" name="email"></br></br>
+      				    	<label>Password
+                    </label></br>
+                    <input type="text" name="password"></br></br>
+      				    	<button type="submit">Submit</button>
+    					   </form>
+  		          </div>
+  		          <p>
+  		            <br>Already have an account? Log in <a href="/login">here</a>.
+  		          </p>
+  		        </div>
+  		    </div>
 	      </div>
 	    </div>
 	</body>

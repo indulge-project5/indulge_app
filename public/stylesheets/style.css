@@ -1,6 +1,12 @@
+@font-face {
+	font-family: gabriola;
+	src:url('../fonts/Gabriola.ttf');
+}
+
 .logo {
-	height: 50px;
-	width: 50px;
+	height: 70px;
+	width: 70px;
+	margin-top: -8px;
 }
 
 .long-logo {
@@ -12,6 +18,7 @@
 
 .navbar-brand {
 	padding: 0px 0px 0px 20px;
+	margin-top: -7px;
 }
 
 .design-yellow {
@@ -74,4 +81,10 @@
 	margin: 0 auto;
 	text-align: center;
 	font-style: serif;
+}
+
+.gabriola {
+	font-family: gabriola;
+	font-size: 40px;
+	margin: 0px 0px 0px 20px;
 }

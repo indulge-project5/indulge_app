@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+        <title>Sign up page</title>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel='stylesheet' href='/stylesheets/signup-page.css'/>
+        <link rel='stylesheet' href='/stylesheets/style.css'/>
+    </head>
+	<body>
+      <div class="signup-page">
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header design-yellow right-padding">
+            <a class="navbar-brand inline-block middle" href="/"><img class="logo" src="http://s20.postimg.org/i15pj1cp9/newellove.png"></a>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="inline-block">
+                <p class="gabriola">
+                  Indulge
+                </p>
+              </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse design-yellow" id="bs-example-navbar-collapse-1">
+              <!-- <ul class="nav navbar-nav">
+                <li><a href="/notes/new">Create a Note <span class="sr-only">(current)</span></a></li>
+                <li><a href="/notes">View my Notes</a></li>
+                <li><a href="/theme">Weekly Gratitude</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul> -->
+              <!-- <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form> -->
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="users/new">Signup</a></li>
+                <li><a href="/login">Log in</a></li>
+                <li class="right-padding"><a href="/logout">Logout</a></li>
+                <!-- <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                  </ul>
+                </li> -->
+              </ul>
+            </div><!-- /.navbar-collapse -->
+            <div class="container-fluid">
+              <div id="icon-navbar">
+                <div class="container full-width">
+                  <div class="row">
+                    <div class="col-xs-4" onclick="document.location = '/notes/new'">
+                      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-4" onclick="document.location = '/notes'">
+                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-xs-4" onclick="document.location = '/theme'">
+                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.container-fluid -->
+        </nav>
+  		<!-- Bootstrap core JavaScript -->
+  	    <div class="container-fluid">
+  	      <div class="row-fluid">
+  	        <div class="span3 centering text-center">
+  		        <div class="signup-form">
+  		          <h1>Sign up!</h1>
+  		          <div>
+  		            <form method="POST" action="/signup">
+                    <label>First Name
+                    </label></br>
+      				    	<input type="text" name="first_name"></br></br>
+      				    	<label>Last Name
+                    </label></br>
+                    <input type="text" name="last_name"></br></br>
+      				    	<label>Phone
+                    </label><p>(Numbers only)</p>
+                    <input type="number" name="phone" placeholder="5555555555" value="<%= p_phone %>"></br></br>
+      				    	<label>Partner's Phone
+                    </label><p>(Numbers only)</p>
+                    <input type="number" name="partner_phone" placeholder="5555555555" value="<%= user_phone %>"></br></br>
+      				    	<label>Email
+                    </label></br>
+                    <input type="text" name="email"></br></br>
+      				    	<label>Password
+                    </label></br>
+                    <input type="text" name="password"></br></br>
+      				    	<button type="submit">Submit</button>
+    					   </form>
+  		          </div>
+  		          <p>
+  		            <br>Already have an account? Log in <a href="/login">here</a>.
+  		          </p>
+  		        </div>
+  		    </div>
+	      </div>
+	    </div>
+	</body>
+</html>
