@@ -150,6 +150,20 @@ app.get('/notes/new', function(req,res) {
   }
 });
 
+app.get('/confirm/:nu_phone/:nup_phone/:first/:last', function(req,res) {
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    var phone = req.params.nu_phone;
+    var partner_phone = req.params.nup_phone;
+    var user_first = req.params.first;
+    var user_last = req.params.last;
+    // If no user is currently logged in, then render the login page:
+      res.render("partner_conf", {user_phone:phone, p_phone: partner_phone, first:user_first, last:user_last});
+    } 
+  else {
+  res.redirect('/');
+  }
+});
+
 app.get('/users/new/:nu_phone/:nup_phone/:first/:last', function(req,res) {
   if((req.session.userId===null)||(req.session.userId===undefined)) {
     var phone = req.params.nu_phone;
