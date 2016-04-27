@@ -5,7 +5,6 @@ var methodOverride = require("method-override");
 var app = express();
 var session = require('express-session');
 var app = express();
-var pg = require('pg');
 
 // Old twilio code
 var twilio = require('./js/twilio_api.js');
@@ -60,6 +59,7 @@ app.use("/", function (req, res, next) {
   }
   next(); 
 });
+
 
 //GET REQUESTS//
 app.get('/', function(req,res) {
@@ -203,7 +203,7 @@ app.get('/users/new', function(req,res) {
 //   res.redirect('/');
 //   }
 // });
-  
+
 
 app.get('/notes', function(req,res) {
   if((req.session.userId===null)||(req.session.userId===undefined)) {
@@ -268,7 +268,7 @@ app.post("/signup", function (req, res) {
       twilio.send_sms_to(new_user);
     // }
     // else {
-    //   console.log("user already in database")
+      // console.log("user already in database")
     // }
   })
   //Creates a new user using createSecure function (from user.js file):
