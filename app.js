@@ -211,6 +211,7 @@ app.get('/notes', function(req,res) {
       res.render("login");
     } 
   else {
+    console.log('the req.sesion is: ', req.session)
     var myNotes = [];
     var pNotes = [];
     req.currentUser().then(function (user) {
@@ -230,7 +231,7 @@ app.get('/notes', function(req,res) {
         for (var key in nts) {
           console.log("The nts[key] is: ", nts[key]);
           console.log("nts[key].UserId is: ",nts[key].UserId);
-          if (user.id === nts[key].UserId){
+          if (userId === nts[key].UserId){
             myNotes.push(nts[key]);
           }
           else {
@@ -240,7 +241,9 @@ app.get('/notes', function(req,res) {
         console.log("myNotes is: ", myNotes);
       console.log("pNotes is: ", pNotes);
         console.log('The user is: ', user);
-        res.render('couple_notes', { myNotes:myNotes, pNotes:pNotes, user: user});
+        res.render('couple_notes', { mNts:myNotes, parNotes:pNotes, user: user});
+        console.log('mNts is this: ', mNts);
+        console.log('parNotes is this: ', parNotes);
       })
     })
   }
