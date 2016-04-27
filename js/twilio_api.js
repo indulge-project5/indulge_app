@@ -1,13 +1,10 @@
 var twilio = require('twilio');
 // var tc = require('./twilio_codes');
 // var tw = tc.twilio_c;
-var pg = require('pg');
-var params = { ssl: true };
-
 
 var send_sms_to = function (user) {
   // New Twilio code:
-var client = require('twilio')(process.env.twilio_sid, process.env.twilio_auth_token, params);
+var client = require('twilio')(process.env.twilio_sid, process.env.twilio_auth_token);
 // Old Twilio code:
   // var client = new twilio.RestClient(tw[0], tw[1]),
   msg = "Hello potential new user! Please visit http://afternoon-sierra-48284.herokuapp.com/users/new/" + user.phone + "/" + user.partner_phone + "/" + user.first_name + "/" + user.last_name;
