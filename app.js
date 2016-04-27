@@ -242,8 +242,8 @@ app.get('/notes', function(req,res) {
       console.log("pNotes is: ", pNotes);
         console.log('The user is: ', user);
         res.render('couple_notes', { mNts:myNotes, parNotes:pNotes, user: user});
-        console.log('mNts is this: ', mNts);
-        console.log('parNotes is this: ', parNotes);
+        // console.log('mNts is this: ', mNts);
+        // console.log('parNotes is this: ', parNotes);
       })
     })
   }

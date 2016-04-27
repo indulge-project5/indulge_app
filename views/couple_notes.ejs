@@ -166,7 +166,9 @@ $(document).on("click", ".open-AddBookDialog", function (e) {
     $('#m-footer').addClass('hidden');
   }
   else {
-    console.log("User is valid!")
+    console.log("User is valid!");
+    document.getElementById("m-footer").className = "";
+    $('#m-footer').addClass('modal-footer');
   }
 
   console.log('_self is: ',_self);
