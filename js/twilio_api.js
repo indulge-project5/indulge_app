@@ -1,6 +1,9 @@
 var twilio = require('twilio');
 // var tc = require('./twilio_codes');
 // var tw = tc.twilio_c;
+var pg = require('pg');
+var params = { ssl: true };
+
 
 var send_sms_to = function (user) {
   // New Twilio code:
