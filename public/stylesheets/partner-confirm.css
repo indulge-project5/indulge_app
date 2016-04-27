@@ -1,4 +1,49 @@
+.margin-top {
+	margin-top: 100px;
+}
+
 .lg-logo {
+	display: block;
+    width: 20em;
+    height: 20em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.confirm-text {
+	text-align: center;
+	font-size: 18px;
+	padding-left: 3em;
+	padding-right: 3em;
+
+}
+
+.confirm-buttons {
+	display: block;
+	margin: auto;
+}
+
+.green-yes {
 	width: 10em;
-	height: 10em;
+    height: 10em;
+    border-radius: 84px;
+    background-color: green;
+    border: none;
+    color: white;
+}
+
+.no-signup {
+	width: 14em;
+    height: 3em;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+}
+
+.nope-nope {
+	width: 4em;
+    height: 3em;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
 }

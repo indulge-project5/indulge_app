@@ -11,10 +11,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <!-- <link rel='stylesheet' type="text/css" href='../partner-confirm.css'> -->
         <!-- <link rel='stylesheet' type="text/css" href='../style.css'> -->
-        <link rel='stylesheet' type="text/css" href='/style.css' />
+        <link rel='stylesheet' type="text/css" href='/stylesheets/partner-confirm.css' />
+        <link rel='stylesheet' type="text/css" href='/stylesheets/style.css' />
     </head>
     <body>
-      <div id="all-notes-page">
+      <div id="partner-confirm-page">
         <nav class="navbar navbar-default navbar-fixed-top">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -93,17 +94,24 @@
             </div>
           </div><!-- /.container-fluid -->
         </nav>
-        <div class="container-fluid design-purple">
-	      <div class="row-fluid">
-	        <div class="span3 centering text-center">
-	        	<div>
-	        		<a class="navbar-brand inline-block middle" href="/"><img class="lg-logo" src="http://s20.postimg.org/i15pj1cp9/newellove.png"></a>
-	        		<p>this is my content!</p>
-	        	</div>
+        <div class="container-fluid design-purple margin-top">
+          <div class="row-fluid">
+            <div class="span3 centering text-center">
+              <div class="confirm-logo">
+                <img class="lg-logo" src="http://s20.postimg.org/i15pj1cp9/newellove.png"></a>
+      		    </div>
+              <div class="confirm-text">
+                <p>Your partner <%= first %> <%= last %> has signed you up as a couple to Indulge in each other!<br><br>Is <%= first %> <%= last %> your partner?</p><br>
+              </div>
+              <div class="confirm-buttons">
+                <button class="green-yes" onclick="document.location = '/users/new/<%= user_phone %>/<%= p_phone %>'">Yes</button><br><br><br>
+                <button class="no-signup" onclick="document.location = '/users/new'">No, but I'd like to sign up</button><br><br><br>
+                <button class="nope-nope" onclick="document.location = '/'">No</button>
+              </div>
+            </div>
+          </div>
 		    </div>
-		  </div>
 	    </div>
-	  </div>
 	</body>
 </html>
 

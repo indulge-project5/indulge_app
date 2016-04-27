@@ -164,7 +164,7 @@ app.get('/confirm/:nu_phone/:nup_phone/:first/:last', function(req,res) {
   }
 });
 
-app.get('/users/new/:nu_phone/:nup_phone/:first/:last', function(req,res) {
+app.get('/users/new/:nu_phone/:nup_phone/', function(req,res) {
   if((req.session.userId===null)||(req.session.userId===undefined)) {
     var phone = req.params.nu_phone;
     var partner_phone = req.params.nup_phone;
