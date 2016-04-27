@@ -22,13 +22,12 @@
 
 
 .bb {
-	color: black;
 	font-weight: bolder;
 	padding-top: 32px !important;
 }
 
 #photo1 {
-	background-image: url(../img/shoes.jpg);
+	background-image: url(../img/shoes.png);
 }
 
 #photo2 {
@@ -36,7 +35,7 @@
 }
 
 #photo3 {
-	background-image: url(../img/heart.jpg);
+	background-image: url(../img/heart.png);
 }
 
 #photo4 {
