@@ -17,6 +17,7 @@ div.fade_div {
 input {
 	width: 325px;
 	margin-bottom: 20px;
+	border: 1px solid #494949;
 }
 
 .add-note .container {
@@ -25,4 +26,5 @@ input {
 
 textarea {
 	width: 325px;
+	border: 1px solid #494949;
 }
