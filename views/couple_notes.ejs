@@ -98,7 +98,7 @@
 			  <div class="row">
 			    <div class="col-xs-6">
 			    	<div class="my-notes">
-			    		<p class="design-purple text-md">My Notes</p>
+			    		<p class="design-purple text-md">My Date Ideas</p>
 						<% myNotes.forEach(function(mnt) { %>
 							<!-- <div class="box"> -->
 							<a data-id="<%= mnt.title %>" data-id2="<%= mnt.description %>" data-id3="<%= mnt.id %>" data-id4="<%= user.id %>" title="Add this item" class="open-AddBookDialog box blue text-white overflow text-sm" href="#addBookDialog"><%= mnt.title %></a>
@@ -136,7 +136,7 @@
 				</div>
 				<div class="col-xs-6">
 			    	<div class="partner-notes">
-			    		<p class="design-purple text-md">Partner's Notes</p>
+			    		<p class="design-purple text-md">Partner's Date Ideas</p>
 						<% pNotes.forEach(function(pnt) { %>
 							<!-- <div class="box"> -->
 							<a data-id="<%= pnt.title %>" data-id2="<%= pnt.description %>" title="Add this item" class="open-AddBookDialog box pink overflow text-sm" href="#addBookDialog"><%= pnt.title %></a>
