@@ -6,7 +6,7 @@
 .logo {
 	height: 70px;
 	width: 70px;
-	margin-top: -8px;
+	margin-top: -6px;
 }
 
 .long-logo {
@@ -87,4 +87,39 @@
 	font-family: gabriola;
 	font-size: 40px;
 	margin: 0px 0px 0px 20px;
+}
+
+.text-sm {
+	font-family: gabriola;
+	font-size: 18px;
+}
+
+.text-md {
+	font-family: gabriola;
+	font-size: 26px;
+}
+
+.text-lg {
+	font-family: gabriola;
+	font-size: 44px;
+}
+
+.collapse li {
+	padding-top: 4px;
+}
+
+button {
+	border-radius: 5px;
+	background-color: #900D40;
+	color: #FFC300;
+	width: 171px;
+    height: 39px;
+}
+
+input {
+	text-align: center;
+}
+
+.navbar-header button {
+	width: 45px;
 }

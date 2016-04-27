@@ -4,8 +4,8 @@
 
 .lg-logo {
 	display: block;
-    width: 20em;
-    height: 20em;
+    width: 15em;
+    height: 15em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -24,26 +24,27 @@
 }
 
 .green-yes {
-	width: 10em;
-    height: 10em;
-    border-radius: 84px;
+	width: 6em;
+    height: 6em;
+    border-radius: 80px;
     background-color: green;
     border: none;
     color: white;
 }
 
 .no-signup {
-	width: 14em;
-    height: 3em;
+	width: 10em;
+    height: 2em;
     border-radius: 5px;
     background-color: red;
     color: white;
 }
 
 .nope-nope {
-	width: 4em;
-    height: 3em;
+	width: 3em;
+    height: 2em;
     border-radius: 5px;
     background-color: red;
     color: white;
+    margin-bottom: 2em;
 }

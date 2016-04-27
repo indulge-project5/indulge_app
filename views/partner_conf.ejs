@@ -28,7 +28,7 @@
                 <span class="icon-bar"></span>
               </button>
               <div class="inline-block">
-                <p class="gabriola">
+                <p class="gabriola design-purple">
                   Indulge
                 </p>
               </div>
@@ -60,9 +60,9 @@
                 <button type="submit" class="btn btn-default">Submit</button>
               </form> -->
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="users/new">Signup</a></li>
-                <li><a href="/login">Log in</a></li>
-                <li class="right-padding"><a href="/logout">Logout</a></li>
+                <li class="text-sm"><a href="users/new">Signup</a></li>
+                <li class="text-sm"><a href="/login">Log in</a></li>
+                <li class="right-padding text-sm"><a href="/logout">Logout</a></li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -96,16 +96,16 @@
         </nav>
         <div class="container-fluid design-purple margin-top">
           <div class="row-fluid">
-            <div class="span3 centering text-center">
+            <div class="span3 centering text-center text-md">
               <div class="confirm-logo">
                 <img class="lg-logo" src="http://s20.postimg.org/i15pj1cp9/newellove.png"></a>
       		    </div>
               <div class="confirm-text">
-                <p>Your partner <%= first %> <%= last %> has signed you up as a couple to Indulge in each other!<br><br>Is <%= first %> <%= last %> your partner?</p><br>
+                <p class="text-md">Your partner, <b><%= first %> <%= last %></b> has signed you up as a couple to Indulge in each other!<br><br>Is <%= first %> <%= last %> your partner?</p><br>
               </div>
               <div class="confirm-buttons">
-                <button class="green-yes" onclick="document.location = '/users/new/<%= user_phone %>/<%= p_phone %>'">Yes</button><br><br><br>
-                <button class="no-signup" onclick="document.location = '/users/new'">No, but I'd like to sign up</button><br><br><br>
+                <button class="green-yes" onclick="document.location = '/users/new/<%= user_phone %>/<%= p_phone %>'">Yes</button><br><br>
+                <button class="no-signup" onclick="document.location = '/users/new'">No, but I'd like to sign up</button><br><br>
                 <button class="nope-nope" onclick="document.location = '/'">No</button>
               </div>
             </div>

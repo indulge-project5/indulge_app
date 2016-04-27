@@ -38,6 +38,12 @@
 	padding: 3em;
 }
 
+button {
+	width: 171px;
+    height: 39px;
+}
+
+
 @media screen and (max-width: 499px) {
     #photo1, #photo4 {
     	background-position: center;

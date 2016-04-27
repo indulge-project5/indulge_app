@@ -5,9 +5,9 @@
 
 #all-notes-page .box {
   display: inline-block;
-  width: 10em;
-  height: 10em;
-  line-height: 10em;
+  width: 8em;
+  height: 8em;
+  line-height: 8em;
   margin: 5px;
   text-align: center;
   border: 1px solid black;
@@ -59,4 +59,16 @@
 
 .overflow {
 	overflow: hidden;
+}
+
+.hide {
+	display: none;
+}
+
+.m-title {
+	padding-left: 110px;
+}
+
+.modal-header .close {
+	margin-right: -63px;
 }

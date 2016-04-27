@@ -76,7 +76,7 @@ app.get('/login', function(req,res){
     else {
       console.log("The req.session.userId is: ", req.session.userId);
     //If user is already in a session, redirect to the profile page:
-    res.redirect('/');
+    res.redirect('/notes/new');
   }
 });
 
@@ -160,7 +160,7 @@ app.get('/confirm/:nu_phone/:nup_phone/:first/:last', function(req,res) {
       res.render("partner_conf", {user_phone:phone, p_phone: partner_phone, first:user_first, last:user_last});
     } 
   else {
-  res.redirect('/');
+  res.redirect('/notes/new');
   }
 });
 
@@ -172,7 +172,7 @@ app.get('/users/new/:nu_phone/:nup_phone/', function(req,res) {
       res.render("partner_signup", {user_phone:phone, p_phone: partner_phone});
     } 
   else {
-  res.redirect('/');
+  res.redirect('/notes/new');
   }
 });
 
@@ -182,7 +182,7 @@ app.get('/users/new', function(req,res) {
       res.render("new_user", {user_phone:'', p_phone: ''});
     } 
   else {
-  res.redirect('/');
+  res.redirect('/notes/new');
   }
 });
 
@@ -237,10 +237,11 @@ app.get('/notes', function(req,res) {
             pNotes.push(nts[key]);
           }
         }
+        console.log("myNotes is: ", myNotes);
+      console.log("pNotes is: ", pNotes);
+        console.log('The user is: ', user);
         res.render('couple_notes', { myNotes:myNotes, pNotes:pNotes, user: user});
       })
-      console.log("myNotes is: ", myNts);
-      console.log("pNotes is: ", pNts);
     })
   }
 });

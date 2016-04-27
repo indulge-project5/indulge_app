@@ -26,7 +26,7 @@
                 <span class="icon-bar"></span>
               </button>
               <div class="inline-block">
-                <p class="gabriola">
+                <p class="gabriola design-purple">
                   Indulge
                 </p>
               </div>
@@ -58,9 +58,9 @@
                 <button type="submit" class="btn btn-default">Submit</button>
               </form> -->
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="users/new">Signup</a></li>
-                <li><a href="/login">Log in</a></li>
-                <li class="right-padding"><a href="/logout">Logout</a></li>
+                <li class="text-sm"><a href="users/new">Signup</a></li>
+                <li class="text-sm"><a href="/login">Log in</a></li>
+                <li class="right-padding text-sm"><a href="/logout">Logout</a></li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -97,31 +97,31 @@
   	      <div class="row-fluid">
   	        <div class="span3 centering text-center">
   		        <div class="signup-form">
-  		          <h1>Sign up!</h1>
+  		          <h1 class="text-lg design-purple">Sign up!</h1>
   		          <div>
   		            <form method="POST" action="/signup">
-                    <label>First Name
+                    <label class="text-md design-purple">First Name
                     </label></br>
       				    	<input type="text" name="first_name"></br></br>
-      				    	<label>Last Name
+      				    	<label class="text-md design-purple">Last Name
                     </label></br>
                     <input type="text" name="last_name"></br></br>
-      				    	<label>Phone
-                    </label><p>(Numbers only)</p>
+      				    	<label class="text-md design-purple">Phone
+                    </label><p class="text-sm">(Numbers only)</p>
                     <input type="number" name="phone" placeholder="5555555555" value="<%= p_phone %>"></br></br>
-      				    	<label>Partner's Phone
-                    </label><p>(Numbers only)</p>
+      				    	<label class="text-md design-purple">Partner's Phone
+                    </label><p class="text-sm">(Numbers only)</p>
                     <input type="number" name="partner_phone" placeholder="5555555555" value="<%= user_phone %>"></br></br>
-      				    	<label>Email
+      				    	<label class="text-md design-purple">Email
                     </label></br>
                     <input type="text" name="email"></br></br>
-      				    	<label>Password
+      				    	<label class="text-md design-purple">Password
                     </label></br>
                     <input type="text" name="password"></br></br>
-      				    	<button type="submit">Submit</button>
+      				    	<button  class="text-sm design-purple" type="submit">Submit</button>
     					   </form>
   		          </div>
-  		          <p>
+  		          <p class="text-sm design-purple">
   		            <br>Already have an account? Log in <a href="/login">here</a>.
   		          </p>
   		        </div>

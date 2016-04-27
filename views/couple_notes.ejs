@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
               </button>
               <div class="inline-block">
-                <p class="gabriola">
+                <p class="gabriola design-purple">
                   Indulge
                 </p>
               </div>
@@ -59,9 +59,9 @@
                 <button type="submit" class="btn btn-default">Submit</button>
               </form> -->
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="users/new">Signup</a></li>
-                <li><a href="/login">Log in</a></li>
-                <li class="right-padding"><a href="/logout">Logout</a></li>
+                <li class="text-sm design-purple"><a href="users/new">Signup</a></li>
+                <li class="text-sm design-purple"><a href="/login">Log in</a></li>
+                <li class="right-padding text-sm design-purple"><a href="/logout">Logout</a></li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -98,21 +98,21 @@
 			  <div class="row">
 			    <div class="col-xs-6">
 			    	<div class="my-notes">
-			    		<p class="design-purple">My Notes</p>
+			    		<p class="design-purple text-md">My Notes</p>
 						<% myNotes.forEach(function(mnt) { %>
 							<!-- <div class="box"> -->
-							<a data-id="<%= mnt.title %>" data-id2="<%= mnt.description %>" data-id3="<%= mnt.id %>" data-id4="<%= user.id %>" title="Add this item" class="open-AddBookDialog box blue text-white overflow" href="#addBookDialog"><%= mnt.title %></a>
+							<a data-id="<%= mnt.title %>" data-id2="<%= mnt.description %>" data-id3="<%= mnt.id %>" data-id4="<%= user.id %>" title="Add this item" class="open-AddBookDialog box blue text-white overflow text-sm" href="#addBookDialog"><%= mnt.title %></a>
 							<!-- </div> -->
-							<div class="modal fade" id="addBookDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal fade text-sm" id="addBookDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							  <div class="modal-dialog">
 							    <div class="modal-content">
 							      <div class="modal-header">
 							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							        <h4 class="modal-title" id="myModalLabel">Title</h4>
+							        <h4 class="modal-title text-md design-purple m-title" id="myModalLabel">Title</h4>
 							        <input type="text" name="bookId" id="bookId" value="" />
 							      </div>
 							      <div class="modal-body">
-							      	<h4 class="modal-title" id="myModalLabel">Description</h4>
+							      	<h4 class="modal-title text-md design-purple" id="myModalLabel">Description</h4>
 							        <input type="text" name="bookId2" id="bookId2" value="" />
 							      </div>
 							      <div class="modal-footer">
@@ -136,10 +136,10 @@
 				</div>
 				<div class="col-xs-6">
 			    	<div class="partner-notes">
-			    		<p class="design-purple">Partner's Notes</p>
+			    		<p class="design-purple text-md">Partner's Notes</p>
 						<% pNotes.forEach(function(pnt) { %>
 							<!-- <div class="box"> -->
-							<a data-id="<%= pnt.title %>" data-id2="<%= pnt.description %>" title="Add this item" class="open-AddBookDialog box pink overflow" href="#addBookDialog"><%= pnt.title %></a>
+							<a data-id="<%= pnt.title %>" data-id2="<%= pnt.description %>" title="Add this item" class="open-AddBookDialog box pink overflow text-sm" href="#addBookDialog"><%= pnt.title %></a>
 							<!-- </div> -->
 						<% }) %>
 					</div>
@@ -153,7 +153,9 @@
 
 <script>
 $(document).on("click", ".open-AddBookDialog", function (e) {
-
+  // if (user.id!=pNotes.UserId) {
+  //   $("form").addClass("hide");
+  // }
 	e.preventDefault();
 
 	var _self = $(this);
