@@ -265,12 +265,12 @@ app.post("/signup", function (req, res) {
     }
   })
   .then(function(p_user) {
-    // if (!p_user) {
+    if (!p_user) {
       twilio.send_sms_to(new_user);
-    // }
-    // else {
-      // console.log("user already in database")
-    // }
+    }
+    else {
+      console.log("user already in database")
+    }
   })
   //Creates a new user using createSecure function (from user.js file):
   db.User.create({first_name: new_user.first_name, last_name: new_user.last_name, phone: new_user.phone, partner_phone: new_user.partner_phone, email: new_user.email, password: new_user.password})

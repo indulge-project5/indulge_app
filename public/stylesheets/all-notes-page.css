@@ -72,3 +72,8 @@
 .modal-header .close {
 	margin-right: -63px;
 }
+
+#all-notes-page .modal-footer .button, #all-notes-page .modal-footer .glyphicon {
+	width: 30px;
+	margin: 0px;
+}
