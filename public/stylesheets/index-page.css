@@ -1,5 +1,11 @@
 .login-signup {
-	margin-top:120px;
+	margin-top:100px;
+}
+
+.login-form {
+	padding-top: 40px;
+	padding-bottom: 20px;
+	background-color: #494949;
 }
 
 .inside {
@@ -30,19 +36,48 @@
 	background-image: url(../img/hands2.jpg);
 }
 
-.background-yellow {
+/*.background-yellow {
 	background-color: #F9F7DE;
-}
+}*/
 
-.btm-create {
+/*.btm-create {
 	padding: 3em;
 }
-
+*/
 button {
 	width: 171px;
     height: 39px;
 }
 
+.navbar {
+	margin-bottom: 0px
+}
+
+.photos h2 {
+	margin-top: 0px;
+	padding-top: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.about-glyphs {
+	height: 10em;
+	padding-top: 1em;
+}
+
+.about-glyphs .glyphicon {
+	font-size: 40px;
+	margin: 0px;
+}
+
+.about {
+	padding-left: 2em
+}
+
+.padding-top-text {
+	margin-top: 10px;
+	color: white;
+}
 
 @media screen and (max-width: 499px) {
     #photo1, #photo4 {
@@ -57,4 +92,8 @@ button {
     .inside {
     	height: 40em;
     }
+}
+
+.flt-right {
+	float: right;
 }

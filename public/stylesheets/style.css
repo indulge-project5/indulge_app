@@ -38,6 +38,15 @@
 	color: #900D40;
 }
 
+#nav-indulge {
+	margin: 0px;
+}
+
+#nav-indulge p {
+	font-size: 38px;
+    margin: 0px;
+}
+
 .glyphicon {
 	margin-left: 42%;
     margin-top: 18px;
@@ -85,8 +94,7 @@
 
 .gabriola {
 	font-family: gabriola;
-	font-size: 40px;
-	margin: 0px 0px 0px 20px;
+/*	margin: 0px 0px 0px 20px;*/
 }
 
 .text-sm {
