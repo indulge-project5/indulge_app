@@ -20,8 +20,15 @@
 	height: 100%;
 }
 
+
+.bb {
+	color: black;
+	font-weight: bolder;
+	padding-top: 32px !important;
+}
+
 #photo1 {
-	background-image: url(../img/sunset.jpg);
+	background-image: url(../img/shoes.jpg);
 }
 
 #photo2 {
@@ -29,7 +36,7 @@
 }
 
 #photo3 {
-	background-image: url(../img/coffee.jpg);
+	background-image: url(../img/heart.jpg);
 }
 
 #photo4 {
