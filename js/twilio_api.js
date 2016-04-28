@@ -12,7 +12,7 @@ var client = require('twilio')(process.env.twilio_sid, process.env.twilio_auth_t
   name = user.first_name + " " + user.last_name;
   console.log("Entries are: ", user.phone, user.first_name);
   client.sms.messages.create({
-    to: phone,
+    to: "+1" + phone,
     from: process.env.twilio_phone,
     body: msg
 }, function(error, message) {
