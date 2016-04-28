@@ -161,7 +161,7 @@ $(document).on("click", ".open-AddBookDialog", function (e) {
 
 	var _self = $(this);
 
-  if (!('_self(contAtt) is: ', _self["context"]["dataset"]["id4"])) {
+  if (!(_self["context"]["dataset"]["id4"])) {
     console.log("User is not valid!");
     $('#m-footer').addClass('hidden');
   }
@@ -172,9 +172,6 @@ $(document).on("click", ".open-AddBookDialog", function (e) {
   }
 
   console.log('_self is: ',_self);
-  console.log('_self var is: ', typeof(_self));
-  console.log('_self[0] is: ', _self[0]);
-  console.log('_self(contAtt) is: ', _self["context"]["dataset"]["id4"]);
 
 	var myBookId = _self.data('id');
 	$("#bookId").val(myBookId);
