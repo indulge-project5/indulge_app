@@ -8,9 +8,9 @@ var client = require('twilio')(process.env.twilio_sid, process.env.twilio_auth_t
 // Old Twilio code:
   // var client = new twilio.RestClient(tw[0], tw[1]),
   msg = "Hello potential new user! Please visit http://afternoon-sierra-48284.herokuapp.com/confirm/" + user.phone + "/" + user.partner_phone + "/" + user.first_name + "/" + user.last_name;
-  phone = user.partner_phone,
+  phone = user.partner_phone;
   name = user.first_name + " " + user.last_name;
-  console.log("Entries are: ", user.phone, user.first_name)
+  console.log("Entries are: ", user.phone, user.first_name);
   client.sms.messages.create({
     to: phone,
     from: process.env.twilio_phone,
