@@ -262,19 +262,19 @@ app.post("/signup", function (req, res) {
     password : req.body.password
   };
   console.log("The new_user is: ", new_user);
-  db.User.find({
-    where: {
-      partner_phone: new_user.partner_phone
-    }
-  })
-  .then(function(p_user) {
+  // db.User.find({
+  //   where: {
+  //     partner_phone: new_user.partner_phone
+  //   }
+  // })
+  // .then(function(p_user) {
     // if (!p_user) {
       twilio.send_sms_to(new_user);
     // }
     // else {
     //   console.log("user already in database")
     // }
-  })
+  // })
   //Creates a new user using createSecure function (from user.js file):
   db.User.create({first_name: new_user.first_name, last_name: new_user.last_name, phone: new_user.phone, partner_phone: new_user.partner_phone, email: new_user.email, password: new_user.password})
   .then(function(user){
