@@ -31,6 +31,7 @@ var client = require('twilio')(process.env.twilio_sid, process.env.twilio_auth_t
         console.log(message.dateCreated);
     } else {
         console.log('Oops! There was an error.');
+        console.log(error);
     }
   });
 }
