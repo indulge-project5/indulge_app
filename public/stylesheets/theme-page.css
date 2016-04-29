@@ -3,16 +3,16 @@
 	text-align: center;
 }
 
-#theme-page ul {
+#theme-page .gratitude ul {
     width: 300px;
     display: block;
     margin: 0 auto;
 }
 
-#theme-page ul {
+#theme-page .gratitude ul {
 	padding: 11px;
 }
 
-#theme-page li {
+#theme-page .gratitude li {
 	float: left;
 }

@@ -63,7 +63,13 @@ app.use("/", function (req, res, next) {
 
 //GET REQUESTS//
 app.get('/', function(req,res) {
-  res.render('index');
+  if((req.session.userId===null)||(req.session.userId===undefined)) {
+    // If no user is currently logged in, then render the login page:
+    res.render('index');
+    } 
+  else {
+    res.redirect('/notes/new');
+  }
 });
 
 
@@ -125,7 +131,17 @@ app.get('/notes/:nId/edit', function(req,res) {
 // DO NOT USE!!!!!!
 
 app.get('/theme', function(req,res) {
-    res.render('theme');
+  req.currentUser().then(function(user){
+      if (user) {
+        console.log("The user is this: ", user);
+        console.log("The user id is this: ", user.id);
+        console.log("The user phone is this: ", user.phone);
+        res.render('theme', { user: user});
+      }
+      else {
+        res.render('theme', { user: null});
+      }
+  })
 });
 
 app.get('/notes/new', function(req,res) {

@@ -131,3 +131,11 @@ input {
 .navbar-header button {
 	width: 45px;
 }
+
+.orange-focus {
+	color: red;
+}
+
+.hidden {
+	display: none;
+}

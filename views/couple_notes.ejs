@@ -59,8 +59,6 @@
                 <button type="submit" class="btn btn-default">Submit</button>
               </form> -->
               <ul class="nav navbar-nav navbar-right">
-                <li class="text-sm design-purple"><a href="users/new">Signup</a></li>
-                <li class="text-sm design-purple"><a href="/login">Log in</a></li>
                 <li class="right-padding text-sm design-purple"><a href="/logout">Logout</a></li>
                 <!-- <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -82,7 +80,7 @@
                       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                     </div>
                     <div class="col-xs-4" onclick="document.location = '/notes'">
-                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                    <span class="orange-focus glyphicon glyphicon-th-large" aria-hidden="true"></span>
                     </div>
                     <div class="col-xs-4" onclick="document.location = '/theme'">
                     <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
@@ -121,7 +119,6 @@
 										    <button type="submit">
 									       	<span class="glyphicon glyphicon-pencil grey" aria-hidden="true"></span></button>
 									     </form>
-
 									    <form  id="trash" method="POST" action="/notes/<%=mnt.id%>?_method=delete">
 									       <button type="submit">
 									       	<span class="glyphicon glyphicon-trash grey" aria-hidden="true"></span></button>
@@ -148,8 +145,6 @@
 			</div>
 		</div>
 	  </div>
-	</body>
-</html>
 
 <script>
 $(document).on("click", ".open-AddBookDialog", function (e) {
@@ -185,3 +180,5 @@ $(document).on("click", ".open-AddBookDialog", function (e) {
 });
 </script>
 
+  </body>
+</html>
