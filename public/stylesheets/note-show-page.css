@@ -1,0 +1,34 @@
+#note-show-page .showNote {
+	margin-top: 125px;
+}
+
+#note-show-page #pencil {
+	float: right;
+}
+
+#note-show-page #trash {
+	float: left;
+}
+
+#note-show-page .glyp-div button {
+    border-radius: none;
+    background-color: transparent;
+    border: none;
+}
+
+#note-show-page .note-title, #note-show-page .note-desc {
+	border: solid black 1px;
+	max-width: 360px;
+}
+
+#note-show-page .note-title p, #note-show-page .note-desc p {
+	font-size: 16px;
+	margin-bottom: 0px;
+}
+#note-show-page button:focus {
+	outline: none;
+}
+
+#note-show-page .glyp-div {
+	margin-top: 10px;
+}
